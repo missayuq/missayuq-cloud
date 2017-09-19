@@ -1,0 +1,27 @@
+- hosts: ansible
+  connection: local
+  roles:
+    - aws_vpc
+    - aws_sg
+    - aws_elb
+    - aws_s3
+    - aws_cdn
+    - aws_keys
+    - aws_ec2
+    - aws_dns
+    - aws_rds
+- hosts: env-vms 
+  pre_tasks:
+    - name: register reboot
+      stat: path=/var/tmp/reboot.txt
+      register: stat_reboot
+  roles:
+      - common
+      - nginx 
+      - apache
+      - java 
+      - tomcat 
+  remote_user: root 
+  become: yes 
+  become_user: root
+  become_method: sudo
