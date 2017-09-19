@@ -49,25 +49,25 @@
   tasks:
 
   - name: deploy nginx
-    debug: msg="Deploying nginx on {{ item }}
+    debug: msg="Deploying nginx on {{ item }}"
     with_items:
     - missayuq-app-qa-01
     - missayuq-app-qa-02
 
   - name: deploy apache
-    debug: msg="Deploying apache on {{ item }}
+    debug: msg="Deploying apache on {{ item }}"
     with_items:
     - missayuq-app-qa-01
     - missayuq-app-qa-02
 
   - name: deploy java
-    debug: msg="Deploying java on {{ item }}
+    debug: msg="Deploying java on {{ item }}"
     with_items:
     - missayuq-app-qa-01
     - missayuq-app-qa-02
 
   - name: deploy tomcat
-    debug: msg="Deploying tomcat on {{ item }}
+    debug: msg="Deploying tomcat on {{ item }}"
     with_items:
     - missayuq-app-qa-01
     - missayuq-app-qa-02
@@ -77,19 +77,19 @@
   tasks:
 
   - name: deploy mysql
-    debug: msg="Deploying mysql on {{ item }}
+    debug: msg="Deploying mysql on {{ item }}"
     with_items:
     - missayuq-app-qa-01
     - missayuq-app-qa-02
 
   - name: create database
-    debug: msg="Create database {{ item }}
+    debug: msg="Create database {{ item }}"
     with_items:
     - db_missayuq_qa
 
 
   - name: create database users
-    debug: msg="Create database users {{ item }}
+    debug: msg="Create database users {{ item }}"
     with_items:
     - u_missayuq_qa
     - u_admin_qa
