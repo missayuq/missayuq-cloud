@@ -6,6 +6,7 @@
     debug: msg="Deploying load balancer elb-missayuq-qa"
 
   - name: deploy aws security groups
+    no_log: True
     debug: msg="Add TCP port {{ item }}"
     with_items:
     - 8080
@@ -42,5 +43,60 @@
     - tcpdump
     - schedtool
     - unzip
+
+- hosts: application-vms
+  connection: local
+  tasks:
+
+  - name: deploy nginx
+    debug: msg="Deploying nginx on {{ item }}
+    with_items:
+    - missayuq-app-qa-01
+    - missayuq-app-qa-02
+
+  - name: deploy apache
+    debug: msg="Deploying apache on {{ item }}
+    with_items:
+    - missayuq-app-qa-01
+    - missayuq-app-qa-02
+
+  - name: deploy java
+    debug: msg="Deploying java on {{ item }}
+    with_items:
+    - missayuq-app-qa-01
+    - missayuq-app-qa-02
+
+  - name: deploy tomcat
+    debug: msg="Deploying tomcat on {{ item }}
+    with_items:
+    - missayuq-app-qa-01
+    - missayuq-app-qa-02
+
+- hosts: database-vms
+  connection: local
+  tasks:
+
+  - name: deploy mysql
+    debug: msg="Deploying mysql on {{ item }}
+    with_items:
+    - missayuq-app-qa-01
+    - missayuq-app-qa-02
+
+  - name: create database
+    debug: msg="Create database {{ item }}
+    with_items:
+    - db_missayuq_qa
+
+
+  - name: create database users
+    debug: msg="Create database users {{ item }}
+    with_items:
+    - u_missayuq_qa
+    - u_admin_qa
+    - u_reandonly_qa
+  
+
+
+
 
     
