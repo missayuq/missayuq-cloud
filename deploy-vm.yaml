@@ -95,7 +95,9 @@
     - u_admin_qa
     - u_reandonly_qa
   
-
+- name: load site
+    debug: msg="site: http://elb-missayuq-qa:8983/"
+    
 
 
 
