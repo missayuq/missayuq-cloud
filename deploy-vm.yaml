@@ -1,0 +1,6 @@
+- hosts: ansible
+  connection: local
+  tasks:
+  - name: deploy load aws_load_balancer
+    debug: msg="Deploying load balancer elb-missayuq-qa"
+    
